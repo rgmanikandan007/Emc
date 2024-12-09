@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="display">Loading...</h1>
+        <button id="dhoni" onclick="Update(event)">Dhoni</button>
+        <button id="jaddu" onclick="Update(event)">Jaddu</button>
+        <button id="raina" onclick="Update(event)">Raina</button>
+    </div>
+    <script>
+        const display = document.getElementById("display")
+
+        function Update(event){
+            console.log();
+            display.innerHTML = event.target.textContent;
+        }
+    </script>
+</body>
+</html>

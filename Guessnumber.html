@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Guess number</h2>
+        <input type="text" id="guessnumber">
+        <button onclick="change()">Click</button>
+        <div id="result"></div>
+        <p id="score">Score: 10</p>
+    </div>
+
+
+    <script>
+        const guessnumber = document.getElementById("guessnumber");
+        const result = document.getElementById("result");
+        const randomNumber = Math.floor(Math.random()*10)+1
+        const score = document.getElementById("score");
+        let totalScore = 10;
+
+        function change(){
+            const enterd = guessnumber.value;
+            if(randomNumber == enterd){
+                result.innerHTML = "Win";
+            } else {
+                result.innerHTML = "Loss";
+                totalScore = totalScore - 1;
+                score.innerHTML = totalScore;
+                // location.reload();
+            }
+        }
+
+    </script>
+</body>
+</html>

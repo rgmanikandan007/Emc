@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td,
+        th {
+            border: 1px solid #b6b6b6;
+            text-align: left;
+            padding: 5px;
+        }
+    </style>
+</head>
+<!--POST https://jsonplaceholder.typicode.com/posts -->
+<!--GET https://jsonplaceholder.typicode.com/users -->
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <td id="dataId"></td>
+                <td id="dataTitle"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/posts/4')
+            .then(response => response.json())
+            .then(json => {
+                const dataId = document.getElementById("dataId");
+                dataId.textContent = `${json.id}`;
+                const dataTitle = document.getElementById("dataTitle");
+                dataTitle.textContent = `${json.title}`;
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                const p = document.getElementById("display");
+                p.textContent = "Failed to fetch data.";
+            });
+    </script>
+
+</body>
+
+</html>
