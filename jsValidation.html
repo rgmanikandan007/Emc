@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Validation</title>
+    <style>
+        body {
+            margin: 0;
+            /* height: 100vh; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-size: 13px;
+        }
+
+        .btn {
+            text-align: center;
+        }
+
+        .btn button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br>
+
+            <label for="emai">Email:</label>
+            <input type="text" id="email" name="email"><br>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile"><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+        </form>
+        <div class="btn">
+            <button id="clickEvent">Submit</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        const clickEvent = document.getElementById("clickEvent");
+        clickEvent.addEventListener("click", function() {
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+             if (username == "" || email == '' || mobile == "" || password == ""){
+                console.log("Please enter valid fields");
+             } 
+
+             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+             if(emailRegex.test(email)){
+                console.log("Please enter valid Email");
+             } else {
+                console.log("Not valid Email");
+             }
+
+             const mobileRegex = /^[0]?[789]\d{9}$/;
+             if(mobileRegex.test(mobile)){
+                console.log("Valid MobileNo");
+             } else {
+                console.log("Please enter valid MobileNo");
+             }
+        })
+    </script>
+</body>
+
+</html>
